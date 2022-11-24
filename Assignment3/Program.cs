@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 
 // add the database context
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("JackConnection")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("JackSqlite")));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
