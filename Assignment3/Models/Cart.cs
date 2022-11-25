@@ -11,6 +11,8 @@ namespace Assignment3.Models
 
 
         public int ProductId { get; set; }
+        public virtual Product Product { get; set; } = null!;
+
 
 
         public int UserID { get; set; }
