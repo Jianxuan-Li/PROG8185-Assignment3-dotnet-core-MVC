@@ -11,7 +11,9 @@ namespace Assignment3.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Cart> Cart { get; set; }
-         public DbSet<User> Users { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<User> Users { get; set; }
+
 
     }
 }

@@ -16,25 +16,45 @@ namespace Assignment3.Controllers
             this.context = context;
         }
 
-        [HttpGet]
-        public IEnumerable<Cart> Get()
-        {
-            return context.Cart;
-        }
+        //[HttpGet]
+        //public IEnumerable<Cart> Get()
+        //{
+        //    return context.Cart;
+        //}
 
-        [HttpGet("{id}")]
-        public Cart Get(int id)
+     
+
+        //[HttpGet("{id}")]
+        //public Cart Get(int id)
+        //{
+        //    // return object or throw 404 error
+        //    try
+        //    {
+        //        return context.Cart.Find(id);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return null;
+        //    }
+            
+        //}
+
+
+        //find cart by user id
+        [HttpGet()]
+        public IEnumerable<Cart> GetOrderByUID([FromQuery] int userID)
         {
             // return object or throw 404 error
             try
             {
-                return context.Cart.Find(id);
+                //var userID = int.Parse( HttpContext.Request.Query["user_id"]);
+                return context.Cart.Where((c) => c.UserID == userID);
             }
             catch (Exception e)
             {
                 return null;
             }
-            
+
         }
 
         [HttpPost]
