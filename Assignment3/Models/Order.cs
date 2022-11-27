@@ -16,7 +16,7 @@ namespace Assignment3.Models
 
 
         public int UserID { get; set; }
-        //virual user
+       
 
         public int Status { get; set; }
         public string? BillNo { get; set; }

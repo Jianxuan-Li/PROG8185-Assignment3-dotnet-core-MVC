@@ -12,7 +12,7 @@ namespace Assignment3.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Cart> Cart { get; set; }
         public DbSet<Order> Orders { get; set; }
-
+        public DbSet<User> Users { get; set; }
 
 
     }
