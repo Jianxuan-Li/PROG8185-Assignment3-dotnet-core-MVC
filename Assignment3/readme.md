@@ -12,6 +12,7 @@ dotnet ef database update
 # unapply last change
 dotnet tool uninstall --global dotnet-ef
 
+
 # revert
 dotnet ef database update 0
 ```
