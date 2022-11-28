@@ -16,13 +16,15 @@ namespace Assignment3.Controllers
             this.context = context;
         }
 
+
+
         //[HttpGet]
         //public IEnumerable<Cart> Get()
         //{
         //    return context.Cart;
         //}
 
-     
+
 
         //[HttpGet("{id}")]
         //public Cart Get(int id)
@@ -36,7 +38,7 @@ namespace Assignment3.Controllers
         //    {
         //        return null;
         //    }
-            
+
         //}
 
 
@@ -48,7 +50,14 @@ namespace Assignment3.Controllers
             try
             {
                 //var userID = int.Parse( HttpContext.Request.Query["user_id"]);
-                return context.Cart.Where((c) => c.UserID == userID);
+                var data = context.Cart.Where((c) => c.UserID == userID);
+                foreach (var d in data)
+                {
+                    d.Product = context.Products.Find(d.ProductId);
+                }
+
+                return data;
+
             }
             catch (Exception e)
             {
@@ -57,9 +66,11 @@ namespace Assignment3.Controllers
 
         }
 
+
         [HttpPost]
         public Cart Post([FromBody] Cart cart)
         {
+            cart.Product  = context.Products.Find(cart.ProductId);
             context.Cart.Add(cart);
             context.SaveChanges();
             return cart;

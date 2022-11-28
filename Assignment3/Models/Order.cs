@@ -11,14 +11,15 @@ namespace Assignment3.Models
 
 
         public int ProductId { get; set; }
-        public virtual Product Product { get; set; } = null!;
+
+        public virtual Product? Product { get; set; } = null!;
 
 
 
         public int UserID { get; set; }
        
 
-        public int Status { get; set; }
+        public int? Status { get; set; }
         public string? BillNo { get; set; }
 
         public int Quantity { get; set; }
