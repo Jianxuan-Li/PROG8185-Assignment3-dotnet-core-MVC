@@ -47,7 +47,9 @@ namespace Assignment3.Controllers
             // return object or throw 404 error
             try
             {
-                return context.Orders.Find(id);
+                var order = context.Orders.Find(id);
+                order.Product = context.Products.Find(order.ProductId);
+                return order;
             }
             catch (Exception e)
             {
@@ -64,8 +66,16 @@ namespace Assignment3.Controllers
             try
             {
                  //var userID = int.Parse( HttpContext.Request.Query["user_id"]);
-                return context.Orders.Where((o)=>o.UserID==userID);
+                var data = context.Orders.Where((o)=>o.UserID==userID);
+
+                foreach(var d in data)
+                {
+                    d.Product = context.Products.Find(d.ProductId);
+                }
+
+                return data;
             }
+
             catch (Exception e)
             {
                 return null;
